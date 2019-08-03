@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Chatbot</h1>
+  <div>
+    <div id="message"></div>
+    <p id="bot-typing"></p>
+    <div>
+      <input type="text"  onKeyPress="if (event.keyCode == 13) {sendMessage(message,answer);}" name="input" placeholder="Quelle est votre question?">
+      <button type="submit" onclick="sendMessage(message,answer)">Envoyer</button>
+    </div>
+  </div>
+  <script>
+
+    var answer;
+    function sendMessage(x,y){
+      var message = document.getElementsByTagName('input')[0].value; /* Alloue à message la valeur du champs "input"*/
+      document.getElementsByTagName('input')[0].value=null; /*réinitialise le champs une fois que l'on a submit */
+
+      if (message === "bonjour"){
+        answer="Bonjour toi";
+      } else if (message === "comment vas tu?"){
+        answer="Impeccable merci et toi?"
+      } else {
+        answer="Je n'ai pas compris votre message";
+      }
+      var myMessage = document.createElement("p"); /* création d'un paragraphe, alloué a une variable*/
+      myMessage.innerHTML = message; /* Inscription dans cette variable, contenant le paragraphe, la valeur de "message"*/
+      myMessage.className = "me"; /* ajout de la classe "me" au paragraphe crée */
+      document.getElementById('message').appendChild(myMessage); /* création de ce paragraphe dans le code HTML */
+      document.getElementById('bot-typing').style.visibility="visible"; /* on fait afficher l paragraphe ayant l'id "bot-typing" */
+      document.getElementById('bot-typing').innerHTML="Bot is typing"; /* On donne la valeur "Bot is typing" à ce paragraphe */
+      var test = setTimeout(function publishBotMsg(){ /* TimeOut mis en place pour créer un différé dans la réponse du chatBot */
+        var botAnswer = document.createElement("p"); /* même procédé qu'au dessus */
+        botAnswer.innerHTML = answer;
+        botAnswer.className = "bot";
+        document.getElementById('message').appendChild(botAnswer);
+        document.getElementById('bot-typing').style.visibility="hidden"; /* Une fois le message publié la phrase "bot is typing" passe en visibility: hidden */
+      },1500); /* timeOut de 1500ms */
+
+    }
+
+
+    var input = document.querySelector('input'); /* on attribue le premier sélecteur 'input' du code HTML à la variable input */
+    input.addEventListener('input', isTyping); /* on attribue à ce sélecteur un évenement, qui se déclenche lorsqu'il y a une action effectuée sur un input. Cette action est la fonction "isTyping" */
+    function isTyping(){
+      document.getElementById('bot-typing').style.visibility="visible"; /* Si l'utilisateur est en train de modifier l'input en y ajoutant du texte, alors le paragraphe devient visible */
+      document.getElementById('bot-typing').innerHTML="You are typing"; /* On lui attribue la valeur "You are typing" */
+      if (input.value == ""){
+        document.getElementById('bot-typing').style.visibility="hidden"; /* Pour éviter que le paragraphe reste visible, on compare la valeur de l'input à null. Si la valeur est "null", alors le paragraphe rebascule en visibility:hidden */
+      }
+    }
+
+  </script>
+</body>
+</html>
+
