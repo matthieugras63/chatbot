@@ -1,34 +1,58 @@
 body{
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  max-height: 100%;
-  align-items: center;
-  padding: 30px 0px;
-
+  z-index: 1;
+  margin: 0;
 }
 
 body>div{
+  max-width: 30%;
+  display: flex;
+  flex-direction: column;
+  max-height: 50%;
+  padding: 30px 0px;
+  position:fixed;
+  right: 50px;
+  bottom: 40px;
+  display: none;
+  z-index:10;
+}
+
+body>div>div>h1{
+  text-align: center;
+  margin-top:0;
+}
+
+
+body>div>div{
   padding: 30px 25px 20px 20px;
-  width: 35%;
+  max-width:100%;
   max-height: 80%;
   border: 2px solid black;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
+  background: #F7F5F4;
 }
 
-body>div>div{
+body>div>div>div{
   display: flex;
   justify-content: space-between;
+}
+
+body>div>div>div+div{
+  max-width: 100%;
 }
 
 #message{
   max-width: 100%;
   min-width: 100%;
-  min-height: 250px;
+  min-height: 150px;
+  max-height: 400px;
   display: block;
   align-content: flex-start;
+  overflow: auto;
+  padding: 10px;
 }
 
 #message p{
@@ -37,7 +61,8 @@ body>div>div{
   min-height: 30px;
   border: 1px solid blue;
   border-radius: 10px;
-  padding: 10px 0px 10px 10px;
+  padding: 10px 10px 10px 10px;
+  word-wrap: break-word;
 }
 
 .me{
@@ -48,18 +73,38 @@ body>div>div{
   float: right;
 }
 
-body input{
+div input{
   flex: 3;
+  max-width: 75%;
+  overflow: hidden;
 }
 
-body button{
+span{
+  display: inline-block;
+}
+
+div button{
   flex:1;
-  margin-left: 60px;
+  max-width: 25%;
+  overflow: hidden;
 }
 
 #bot-typing{
-margin:0;
-margin-bottom: 10px;
-padding-top: 10px;
-visibility:hidden;
+  margin:0;
+  margin-bottom: 10px;
+  padding-top: 10px;
+}
+
+#typing-msg{
+  visibility: hidden;
+  margin: 0;
+}
+
+#open-chat{
+  position: fixed;
+  right: 0;
+  bottom:0;
+  width: 150px;
+  height: 40px;
+
 }
