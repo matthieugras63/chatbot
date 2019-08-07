@@ -8,11 +8,11 @@ body>div{
   max-width: 30%;
   display: flex;
   flex-direction: column;
-  max-height: 50%;
+  max-height: 85%;
   padding: 30px 0px;
   position:fixed;
   right: 50px;
-  bottom: 40px;
+  bottom: 45px;
   display: none;
   z-index:10;
 }
@@ -59,18 +59,22 @@ body>div>div>div+div{
   display: block;
   width: 50%;
   min-height: 30px;
-  border: 1px solid blue;
   border-radius: 10px;
   padding: 10px 10px 10px 10px;
   word-wrap: break-word;
 }
 
-.me{
+.me, .bot{
+  border: 1px solid blue;
   float: left;
 }
 
-.bot{
+.bot, .botDontKnow{
   float: right;
+}
+
+.botDontKnow{
+  border:1px solid red;
 }
 
 div input{
@@ -87,6 +91,10 @@ div button{
   flex:1;
   max-width: 25%;
   overflow: hidden;
+}
+
+button{
+  outline-style: none;
 }
 
 #bot-typing{
@@ -106,5 +114,9 @@ div button{
   bottom:0;
   width: 150px;
   height: 40px;
-
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom: none;
+  background-color: #21CD0C;
+  display: none;
 }
