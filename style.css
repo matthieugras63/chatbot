@@ -69,12 +69,16 @@ body>div>div>div+div{
   float: left;
 }
 
-.bot, .botDontKnow{
+.bot, .botDontKnow, .botAdvice{
   float: right;
 }
 
 .botDontKnow{
   border:1px solid red;
+}
+
+.botAdvice{
+  border: 1px solid green;
 }
 
 div input{

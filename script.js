@@ -1,7 +1,7 @@
      /* Cette fonction gère l'envoi des messages dans le chat */
 
      var answer;
-     function sendMessage(x,y){
+     function sendMessage(){
       var message = document.getElementsByTagName('input')[0].value; /* Alloue à message la valeur du champs "input"*/
       document.getElementsByTagName('input')[0].value=null; /*réinitialise le champs une fois que l'on a submit */
       var verif = message.toUpperCase();
@@ -27,6 +27,9 @@
      document.querySelector("span+span+span").id="dot3";
      animate(); /* lancement de la fonction animate, définie plus bas */
      scroll.scrollTop = scroll.scrollHeight; /* Récupère la taille de l'élément qui dépasse dans le scroll, et effectue un scroll bottom pour garder le chat en bas */
+
+     /* fonction qui gère le retour du bot */
+
      setTimeout(function(){ /* TimeOut mis en place pour créer un différé dans la réponse du chatbot */
        var botAnswer = document.createElement("p"); /* même procédé qu'au dessus */
        botAnswer.innerHTML = answer;
@@ -35,7 +38,7 @@
       } else{
         botAnswer.className = "bot";
       }
-      scroll.appendChild(botAnswer);
+      document.getElementById('message').appendChild(botAnswer);
       document.getElementById('bot-typing').style.visibility="hidden"; /* Une fois le message publié la phrase "bot is typing" passe en visibility: hidden */
       botAnswer.scrollBy(0,botAnswer.offsetHeight); /* On effectue un scroll automatique, de 0px en horizontal, et de la taille de la fenetre en vertical */
       var scroll2 = document.getElementById('message');
@@ -148,7 +151,7 @@
       // console.log(tableauST);
       var scrollMax = Math.max(...tableauST); /* je crée une variable scrollMax, qui correspond à la hauteur maximum que l'on ait atteinte */
       var scrollDifference = scrollMax - st; /* je calcule la différence ainsi parcourue, entre la hauteur max atteinte et le scroll vers le haut */
-      if(scrollDifference > 450){  /* si l'utilisateur est remonté de 350 pixels, alors le chat s'ouvre */
+      if(scrollDifference > 1500){  /* si l'utilisateur est remonté de 350 pixels, alors le chat s'ouvre */
        openchat.style.display="block";
      openChat();
      document.removeEventListener('scroll', scrollingTop);
