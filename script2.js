@@ -133,7 +133,7 @@ function scrollingTop(){
       // console.log(tableauST);
       var scrollMax = Math.max(...tableauST); /* je crée une variable scrollMax, qui correspond à la hauteur maximum que l'on ait atteinte */
       var scrollDifference = scrollMax - st; /* je calcule la différence ainsi parcourue, entre la hauteur max atteinte et le scroll vers le haut */
-      if(scrollDifference > 1500){  /* si l'utilisateur est remonté de 350 pixels, alors le chat s'ouvre */
+      if(scrollDifference > 1500){  /* si l'utilisateur est remonté de 1500 pixels, alors le chat s'ouvre */
       	openchat.style.display="block";
       openChat();
       document.getElementById('bot-typing').style.visibility="visible"; /* on fait afficher l paragraphe ayant l'id "bot-typing" */
