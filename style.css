@@ -69,7 +69,7 @@ body>div>div>div+div{
   float: left;
 }
 
-.bot, .botDontKnow, .botAdvice{
+.bot, .botDontKnow, .botAdvice, .botHelp{
   float: right;
 }
 
@@ -79,6 +79,10 @@ body>div>div>div+div{
 
 .botAdvice{
   border: 1px solid green;
+}
+
+.botHelp{
+  border: 2px solid purple;
 }
 
 div input{
@@ -123,4 +127,16 @@ button{
   border-bottom: none;
   background-color: #21CD0C;
   display: none;
+}
+
+#first{
+  color: blue;
+}
+
+#second{
+  color: red;
+}
+
+#last{
+  color: green;
 }
